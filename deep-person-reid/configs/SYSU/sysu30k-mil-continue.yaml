@@ -1,0 +1,46 @@
+model:
+  name: 'osnet_x1_0_mil'
+  pretrained: True
+  resume: '/home/jtyo/Repos/deep-person-reid/log/sysu30k/model/model.pth.tar-9'
+
+data:
+  type: 'image'
+  root: '/home/jtyo/data'
+  sources: ['sysu30k']
+  targets: ['sysu30k']
+  height: 256
+  width: 128
+  combineall: False
+  transforms: ['random_flip']
+  save_dir: 'log/sysu30k-bestmarket'
+  workers: 4
+
+sampler:
+  train_sampler: 'RandomBagSampler'
+
+train:
+  project: 'sysu30k'
+  optim: 'amsgrad'
+  lr: 0.00021145102244686487
+  max_epoch: 50
+  batch_size: 10
+  fixbase_epoch: 3
+  open_layers: ['classifier', 'bag_classifier', 'attention', 'fc']
+  lr_scheduler: 'one_cycle'
+  bag_size: 10
+
+test:
+  batch_size: 300
+  dist_metric: 'cosine'
+  normalize_feature: False
+  evaluate: False
+  eval_freq: 1
+  rerank: False
+
+loss:
+  name: 'triplet'
+  triplet:
+    weight_t: 0.5637954143364748
+    weight_x: 0.38722407672685
+    weight_d: 0.0
+    margin: 0.9992281233519684

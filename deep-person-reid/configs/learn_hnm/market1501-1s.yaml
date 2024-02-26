@@ -1,0 +1,47 @@
+model:
+  name: 'osnet_x1_0'
+  pretrained: True
+  learn_mining_fn: True
+  learn_mining_inner_steps: 1
+  learn_mining_first_order_approx: True
+
+data:
+  type: 'image'
+  sources: ['market1501']
+  targets: ['market1501']
+  height: 256
+  width: 128
+  combineall: False
+  transforms: ['random_flip']
+  save_dir: 'log/market1501_lhnm_1s'
+
+sampler:
+  train_sampler: 'RandomIdentitySampler'
+  num_instances: 4
+
+loss:
+  name: 'triplet'
+  triplet:
+    weight_t: 1.0
+    weight_x: 1.0
+    weight_d: 0.0
+    margin: 1.0
+
+train:
+  project: 'learn_mining_market1501'
+  optim: 'amsgrad'
+  lr: 0.0005
+  max_epoch: 50
+  batch_size: 50
+  fixbase_epoch: 0
+  open_layers: ['classifier']
+  lr_scheduler: 'cosine'
+  bag_size: None
+
+test:
+  batch_size: 300
+  dist_metric: 'cosine'
+  normalize_feature: False
+  evaluate: False
+  eval_freq: 1
+  rerank: False

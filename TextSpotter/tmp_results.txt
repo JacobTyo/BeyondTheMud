@@ -1,0 +1,201 @@
+Dataset stats:
+
+Training set:
+shadows: 140 (7.26%)
+blur: 72 (3.73%)
+glare: 171 (8.87%)
+mud obscured: 807 (41.86%)
+dust: 27 (1.40%)
+
+Test set:
+blur: 13 (2.69%)
+shadows: 31 (6.42%)
+mud obscured: 214 (44.31%)
+glare: 35 (7.25%)
+dust: 11 (2.28%)
+
+From a fine-tuned model
+blur: 13 (2.69%)
+shadows: 31 (6.42%)
+mud obscured: 214 (44.31%)
+glare: 35 (7.25%)
+dust: 11 (2.28%)
+none: 200 (41.41%)
+========================================
+File not found: 35
+Overall BBox Precision: 0.847
+Overall BBox Recall: 0.715
+Overall BBox F1 Score: 0.775
+Overall Text Accuracy: 0.404
+Overall E2E Precision: 0.758
+Overall E2E Recall: 0.404
+Overall E2E F1 Score: 0.527
+========================================
+none BBox Precision: 0.880
+none BBox Recall: 0.726
+none BBox F1 Score: 0.795
+none Text Accuracy: 0.000
+none E2E Precision: 0.826
+none E2E Recall: 0.470
+none E2E F1 Score: 0.599
+========================================
+blur BBox Precision: 0.860
+blur BBox Recall: 0.841
+blur BBox F1 Score: 0.851
+blur Text Accuracy: 0.000
+blur E2E Precision: 0.750
+blur E2E Recall: 0.409
+blur E2E F1 Score: 0.529
+========================================
+shadows BBox Precision: 0.875
+shadows BBox Recall: 0.778
+shadows BBox F1 Score: 0.824
+shadows Text Accuracy: 0.000
+shadows E2E Precision: 0.769
+shadows E2E Recall: 0.370
+shadows E2E F1 Score: 0.500
+========================================
+mud obscured BBox Precision: 0.811
+mud obscured BBox Recall: 0.718
+mud obscured BBox F1 Score: 0.761
+mud obscured Text Accuracy: 0.000
+mud obscured E2E Precision: 0.681
+mud obscured E2E Recall: 0.359
+mud obscured E2E F1 Score: 0.470
+========================================
+glare BBox Precision: 0.787
+glare BBox Recall: 0.686
+glare BBox F1 Score: 0.733
+glare Text Accuracy: 0.000
+glare E2E Precision: 0.519
+glare E2E Recall: 0.200
+glare E2E F1 Score: 0.289
+========================================
+dust BBox Precision: 0.925
+dust BBox Recall: 0.638
+dust BBox F1 Score: 0.755
+dust Text Accuracy: 0.000
+dust E2E Precision: 0.833
+dust E2E Recall: 0.259
+dust E2E F1 Score: 0.395
+========================================
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Off the shelf results
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+blur: 13 (2.69%)
+shadows: 31 (6.42%)
+mud obscured: 214 (44.31%)
+glare: 35 (7.25%)
+dust: 11 (2.28%)
+none: 200 (41.41%)
+========================================
+File not found: 53
+Overall BBox Precision: 0.192
+Overall BBox Recall: 0.491
+Overall BBox F1 Score: 0.276
+Overall Text Accuracy: 0.244
+Overall E2E Precision: 0.106
+Overall E2E Recall: 0.244
+Overall E2E F1 Score: 0.148
+========================================
+none BBox Precision: 0.196
+none BBox Recall: 0.568
+none BBox F1 Score: 0.291
+none Text Accuracy: 0.000
+none E2E Precision: 0.124
+none E2E Recall: 0.330
+none E2E F1 Score: 0.180
+========================================
+blur BBox Precision: 0.231
+blur BBox Recall: 0.545
+blur BBox F1 Score: 0.324
+blur Text Accuracy: 0.000
+blur E2E Precision: 0.140
+blur E2E Recall: 0.295
+blur E2E F1 Score: 0.190
+========================================
+shadows BBox Precision: 0.144
+shadows BBox Recall: 0.536
+shadows BBox F1 Score: 0.227
+shadows Text Accuracy: 0.000
+shadows E2E Precision: 0.033
+shadows E2E Recall: 0.107
+shadows E2E F1 Score: 0.050
+========================================
+mud obscured BBox Precision: 0.194
+mud obscured BBox Recall: 0.389
+mud obscured BBox F1 Score: 0.259
+mud obscured Text Accuracy: 0.000
+mud obscured E2E Precision: 0.086
+mud obscured E2E Recall: 0.152
+mud obscured E2E F1 Score: 0.110
+========================================
+glare BBox Precision: 0.162
+glare BBox Recall: 0.547
+glare BBox F1 Score: 0.250
+glare Text Accuracy: 0.000
+glare E2E Precision: 0.052
+glare E2E Recall: 0.156
+glare E2E F1 Score: 0.078
+========================================
+dust BBox Precision: 0.173
+dust BBox Recall: 0.310
+dust BBox F1 Score: 0.222
+dust Text Accuracy: 0.000
+dust E2E Precision: 0.113
+dust E2E Recall: 0.190
+dust E2E F1 Score: 0.142
+========================================
+
+
+
+Eng Pretrained Results
+
+"E2E_RESULTS: precision: 0.07673060884070058, recall: 0.08141592920353982, hmean: 0.07900386431945042"
+"DETECTION_ONLY_RESULTS: precision: 0.14845704753961636, recall: 0.15752212389380532, hmean: 0.15285530270502362"
+
+
+Total Text Results
+
+"E2E_RESULTS: precision: 0.10066305003013863, recall: 0.14778761061946902, hmean: 0.11975618501254931"
+"DETECTION_ONLY_RESULTS: precision: 0.19529837251356238, recall: 0.2867256637168142, hmean: 0.23234134098243095"
+
+"E2E_RESULTS: precision: 0.48680042238648363, recall: 0.4079646017699115, hmean: 0.44390948483389503"
+"DETECTION_ONLY_RESULTS: precision: 0.8954593453009504, recall: 0.7504424778761062, hmean: 0.8165623495426095"
+
+[08/30 02:37:58] d2.evaluation.testing INFO: copypaste: Task: DETECTION_ONLY_RESULTS
+[08/30 02:37:58] d2.evaluation.testing INFO: copypaste: precision,recall,hmean
+[08/30 02:37:58] d2.evaluation.testing INFO: copypaste: 0.9104,0.7372,0.8147
+[08/30 02:37:58] d2.evaluation.testing INFO: copypaste: Task: None-E2E_RESULTS
+[08/30 02:37:58] d2.evaluation.testing INFO: copypaste: precision,recall,hmean
+[08/30 02:37:58] d2.evaluation.testing INFO: copypaste: 0.5126,0.4150,0.4587
+
+
+"E2E_RESULTS: precision: 0.512568306010929, recall: 0.4150442477876106, hmean: 0.458679706601467"
+"DETECTION_ONLY_RESULTS: precision: 0.9103825136612022, recall: 0.7371681415929203, hmean: 0.8146699266503667"
+
+"E2E_RESULTS: precision: 0.48096192384769537, recall: 0.4247787610619469, hmean: 0.45112781954887216"
+"DETECTION_ONLY_RESULTS: precision: 0.8847695390781564, recall: 0.7814159292035399, hmean: 0.8298872180451128"
+
+
+
+"E2E_RESULTS: precision: 0.48554336989032904, recall: 0.43097345132743364, hmean: 0.45663384903891235"
+"DETECTION_ONLY_RESULTS: precision: 0.8823529411764706, recall: 0.7831858407079646, hmean: 0.829817158931083"
+
+
+eng I think
+"E2E_RESULTS: precision: 0.4241573033707865, recall: 0.2672566371681416, hmean: 0.32790445168295324"
+"DETECTION_ONLY_RESULTS: precision: 0.824438202247191, recall: 0.5194690265486726, hmean: 0.6373507057546145"
+
+"E2E_RESULTS: precision: 0.4218533886583679, recall: 0.26991150442477874, hmean: 0.32919589854290343"
+"DETECTION_ONLY_RESULTS: precision: 0.8215767634854771, recall: 0.5256637168141592, hmean: 0.6411225040474906"
+
+"E2E_RESULTS: precision: 0.44871794871794873, recall: 0.27876106194690264, hmean: 0.343886462882096"
+"DETECTION_ONLY_RESULTS: precision: 0.8376068376068376, recall: 0.5203539823008849, hmean: 0.6419213973799127"
+
+"E2E_RESULTS: precision: 0.42567567567567566, recall: 0.27876106194690264, hmean: 0.3368983957219251"
+"DETECTION_ONLY_RESULTS: precision: 0.8108108108108109, recall: 0.5309734513274337, hmean: 0.6417112299465241"

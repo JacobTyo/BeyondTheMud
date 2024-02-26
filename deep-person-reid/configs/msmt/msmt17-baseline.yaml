@@ -1,0 +1,26 @@
+data:
+  type: 'image'
+  sources: ['msmt17']
+  targets: ['msmt17']
+  height: 256
+  width: 128
+  combineall: False
+  transforms: ['random_flip']
+  save_dir: 'log/msmt-baseline'
+
+train:
+  optim: 'amsgrad'
+  lr: 0.0015
+  max_epoch: 50
+  batch_size: 10
+  fixbase_epoch: 10
+  open_layers: ['classifier']
+  lr_scheduler: 'cosine'
+
+test:
+  batch_size: 300
+  dist_metric: 'euclidean'
+  normalize_feature: False
+  evaluate: False
+  eval_freq: -1
+  rerank: False

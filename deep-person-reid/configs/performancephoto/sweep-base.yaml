@@ -1,0 +1,36 @@
+model:
+  name: 'osnet_x1_0'
+  pretrained: True
+
+data:
+  sources: ['performancephoto']
+  targets: ['performancephoto']
+  height: 256
+  width: 128
+  combineall: False
+  save_dir: 'log/performancephoto_base_sweep'
+  transforms: ['random_flip', 'color_jitter', 'random_crop']
+
+train:
+  max_epoch: 100
+  batch_size: 30
+  lr: 0.0003
+  lr_scheduler: 'cosine'
+  seed: 4
+  bag_size: None
+
+test:
+  batch_size: 6
+  eval_freq: 4
+  evaluate: False
+  ranks: [1, 5, 10]
+  visrank: False
+  visrank_topk: 10
+
+#loss:
+#  name: 'triplet'
+
+loss:
+  name: 'softmax'
+  softmax:
+    label_smooth: True

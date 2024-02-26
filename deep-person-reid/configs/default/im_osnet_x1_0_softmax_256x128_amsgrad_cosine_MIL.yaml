@@ -1,0 +1,42 @@
+model:
+  name: 'osnet_x1_0_mil'
+  pretrained: True
+
+data:
+  type: 'image'
+  sources: ['market1501mil']
+  targets: ['market1501mil']
+  height: 256
+  width: 128
+  combineall: False
+  transforms: ['random_flip']
+  save_dir: 'log/osnet_x1_0_market1501_softmax_cosinelr_mil_fixedsamp_4'
+
+sampler:
+  train_sampler: 'RandomBagSampler'
+
+loss:
+  name: 'triplet'
+  triplet:
+    weight_t: 1.0
+    weight_x: 1.0
+    weight_d: 0.0
+    margin: 1.0
+
+train:
+  optim: 'amsgrad'
+  lr: 0.0005
+  max_epoch: 250
+  batch_size: 10
+  fixbase_epoch: 5
+  open_layers: ['classifier', 'bag_classifier', 'attention', 'fc']
+  lr_scheduler: 'one_cycle'
+  bag_size: 10
+
+test:
+  batch_size: 300
+  dist_metric: 'euclidean'
+  normalize_feature: False
+  evaluate: False
+  eval_freq: 5
+  rerank: False

@@ -1,0 +1,53 @@
+model:
+  name: 'osnet_x1_0_mil'
+  pretrained: True
+  acc_fn: 'sum' 
+
+data:
+  sources: ['performancephoto']
+  targets: ['performancephoto']
+  height: 256
+  width: 128
+  combineall: False
+  save_dir: 'log/performancephoto_mil_best'
+  transforms: ['random_flip', 'color_jitter', 'random_crop']
+  workers: 4
+
+performancephoto:
+  real_mil: True
+
+cuhk03:
+  use_metric_cuhk03: True
+
+sampler:
+  train_sampler: 'RandomBagSampler'
+
+train:
+  project: 'PerformancePhoto-Best'
+  max_epoch: 250
+  batch_size: 5
+  lr: 0.0004043699870995427
+  lr_scheduler: 'cosine'
+  seed: 4
+  bag_size: 9
+  fixbase_epoch: 8
+  open_layers: [ 'classifier', 'bag_classifier', 'attention', 'fc']
+
+test:
+  batch_size: 300
+  eval_freq: 2
+  evaluate: False
+  ranks: [1, 5, 10]
+  visrank: False
+  visrank_topk: 10
+  rerank: False
+  normalize_feature: False
+  dist_metric: 'cosine'
+
+loss:
+  name: 'triplet'
+  triplet:
+    weight_t: 0.3881563234710609
+    weight_x: 0.733894565133713
+    weight_d: 0.0
+    margin: 0.7730526791376734

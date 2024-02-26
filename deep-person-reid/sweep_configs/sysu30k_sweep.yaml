@@ -1,0 +1,58 @@
+program: scripts/CMIL_main.py
+name: PerPh-Mil-sweep
+description: 'CMIL method on performancephoto'
+project: PerPh-Mil-sweep
+method: bayes
+metric:
+  name: 'Test/sysu30k/rank1'
+  goal: maximize
+parameters:
+  lr:
+    distribution: log_uniform_values
+    min: 0.00001
+    max: 0.01
+  fixbase_epoch:
+    distribution: int_uniform
+    min: 0
+    max: 10
+  dist_metric:
+    values:
+      - 'euclidean'
+      - 'cosine'
+  normalize_feature:
+    values:
+      - False
+      - True
+  weight_t:
+    distribution: uniform
+    min: 0.1
+    max: 1.0
+  weight_x:
+    distribution: uniform
+    min: 0
+    max: 1.0
+  weight_d:
+    value: 0.0
+  margin:
+    distribution: uniform
+    min: 0.5
+    max: 1.0
+  bag_size:
+    distribution: int_uniform
+    min: 5
+    max: 10
+  batch_size:
+    distribution: int_uniform
+    min: 5
+    max: 10
+early_terminate:
+  type: hyperband
+  min_iter: 3
+  eta: 2
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - "--config-file"
+  - "configs/SYSU/sysu30k-mil.yaml"
+  - ${args}

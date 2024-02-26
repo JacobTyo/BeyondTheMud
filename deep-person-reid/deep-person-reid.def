@@ -1,0 +1,42 @@
+Bootstrap: docker
+From: pytorch/pytorch:2.1.0-cuda11.8-cudnn8-runtime
+
+%post
+    export DEBIAN_FRONTEND=noninteractive
+    echo 'America/New_York' > /etc/timezone
+    ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+
+    # Initialize Conda environment
+    . /opt/conda/etc/profile.d/conda.sh
+    conda activate base
+
+    apt-get -y update
+    apt-get install -y \
+        libgtk2.0-0 \
+        libgtk-3-0 \
+        libqt5widgets5 \
+        libqt5gui5 \
+        libqt5core5a \
+        libx11-6 \
+        libgl1-mesa-glx \
+        libglu1-mesa \
+        libjpeg-dev \
+        libpng-dev \
+        libtiff-dev \
+        libavcodec-dev \
+        libavformat-dev \
+        libopencv-dev \
+        libasound2 \
+        libglib2.0-0 \
+        libglib2.0-dev \
+        libgdk-pixbuf2.0-0 \
+        libcurl4-openssl-dev
+    apt-get -y install tmux wget curl ca-certificates git sudo ninja-build libgl1-mesa-glx
+    pip install numpy cython h5py Pillow six scipy opencv-python matplotlib tb-nightly future yacs gdown flake8 yapf isort==4.3.21 imageio chardet wandb setuptools learn2learn
+
+
+%labels
+    Version v0.0.1
+
+%help
+    Container for deep-person-reid github repo

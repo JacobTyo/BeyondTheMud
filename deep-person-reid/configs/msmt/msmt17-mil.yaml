@@ -1,0 +1,42 @@
+model:
+  name: 'osnet_x1_0_mil'
+  pretrained: True
+
+data:
+  type: 'image'
+  sources: ['msmt17mil']
+  targets: ['msmt17mil']
+  height: 256
+  width: 128
+  combineall: False
+  transforms: ['random_flip']
+  save_dir: 'log/msmt-mil'
+
+sampler:
+  train_sampler: 'RandomBagSampler'
+
+train:
+  optim: 'amsgrad'
+  lr: 0.0005
+  max_epoch: 250
+  batch_size: 10
+  fixbase_epoch: 1
+  open_layers: ['classifier', 'bag_classifier', 'attention', 'fc']
+  lr_scheduler: 'one_cycle'
+  bag_size: 10
+
+test:
+  batch_size: 300
+  dist_metric: 'euclidean'
+  normalize_feature: False
+  evaluate: False
+  eval_freq: 5
+  rerank: False
+
+loss:
+  name: 'triplet'
+  triplet:
+    weight_t: 1.0
+    weight_x: 1.0
+    weight_d: 0.0
+    margin: 1.0
